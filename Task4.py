@@ -25,3 +25,21 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+caller_set = set()
+called_set = set()
+for call in calls:
+    if call[0][:3] != "140":
+        caller_set.add(call[0])
+    called_set.add(call[1])
+
+text_sender = set()
+text_receiver = set()
+for text in texts:
+    text_sender.add(text[0])
+    text_receiver.add(text[1])
+
+suspects = sorted(caller_set - text_sender - called_set - text_receiver)
+
+print("These numbers could be telemarketers: ")
+for suspect in suspects:
+    print(suspect)
