@@ -44,3 +44,33 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+area_code = []
+all_call_080 = 0
+call_080_t0_080 = 0
+
+for call in calls:
+    code = ""
+    if call[0].startswith("(080)"):
+        all_call_080 += 1
+        # Fixed lines
+        if call[1][:1] == "(":
+            code = call[1][1:call[1].find(")")]
+            if code == "080":
+                call_080_t0_080 += 1
+        # Mobile
+        if call[1][:1] in ("7", "8", "9") and " " in call[1]:
+            code = call[1][:4]
+        # Telemarketers
+        if call[1][:3] == "140":
+            code = "140"
+
+        if code != "" and not code in area_code:
+            area_code.append(code)
+
+area_code.sort()
+print("The numbers called by people in Bangalore have codes:")
+for code in area_code:
+    print(code)
+
+print("\n{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(call_080_t0_080 / all_call_080 * 100))
