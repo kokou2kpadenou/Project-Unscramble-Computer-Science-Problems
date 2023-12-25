@@ -70,4 +70,4 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 
 ## Calculate Big O
-After solving each problem, we performed a runtime analysis of our solution, documenting the worst-case Big-O notation for each in our [Time-Complexity](time-complexity.md). The pdf version is [here](time-complexity.pdf).
+After solving each problem, we performed a runtime analysis of our solution, documenting the worst-case Big-O notation for each in Analysis [txt](Analysis.txt), [md](Analysis.md), [pdf](Analysis.pdf).
